@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pl" class="bg-gray-900 text-gray-100">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevLog</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="p-4 md:p-8 flex flex-col items-center min-h-screen">
+    <header class="w-full max-w-2xl mb-10 text-center">
+      <h1
+        class="text-5xl font-black tracking-tighter text-red-500 uppercase italic"
+      >
+        DevLog <span class="text-white">v1</span>
+      </h1>
+      <p class="text-gray-400 mt-2 font-mono text-sm tracking-widest">
+        DZIENNIK PROGRAMISTY
+      </p>
+    </header>
+
+    <main class="w-full max-w-2xl space-y-10">
+      <section
+        class="bg-gray-800 p-6 rounded-2xl border border-gray-700 shadow-2xl space-y-6"
+      >
+        <div class="flex flex-col space-y-2">
+          <label
+            for="done"
+            class="text-sm font-bold text-gray-400 uppercase ml-1"
+            >Co zrobiłem dzisiaj?</label
+          >
+          <textarea
+            name="done"
+            id="done"
+            placeholder="Np. otypowałem querySelectory w FuelCalcs..."
+            class="bg-gray-900 border border-gray-700 rounded-xl p-4 focus:ring-2 focus:ring-red-500 focus:outline-none transition-all h-32"
+          ></textarea>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="flex flex-col space-y-2">
+            <label
+              for="minutes"
+              class="text-sm font-bold text-gray-400 uppercase ml-1"
+              >Ile minut?</label
+            >
+            <input
+              type="number"
+              name="minutes"
+              id="minutes"
+              placeholder="0"
+              class="bg-gray-900 border border-gray-700 rounded-xl p-4 focus:ring-2 focus:ring-red-500 focus:outline-none transition-all"
+            />
+          </div>
+
+          <div class="flex flex-col space-y-2">
+            <label
+              for="rating"
+              class="text-sm font-bold text-gray-400 uppercase ml-1"
+              >Ocena dnia</label
+            >
+            <select
+              name="rating"
+              id="rating"
+              class="bg-gray-900 border border-gray-700 rounded-xl p-4 focus:ring-2 focus:ring-red-500 focus:outline-none transition-all appearance-none cursor-pointer"
+            >
+              <option value="Sigma">🔥 10/10</option>
+              <option value="Stabilnie">👊 7/10</option>
+              <option value="Szrot">🛑 2/10</option>
+            </select>
+          </div>
+        </div>
+
+        <button
+          id="addLogBtn"
+          class="w-full bg-red-600 hover:bg-red-500 text-white font-black py-4 rounded-xl transition-all transform hover:scale-[1.02] active:scale-95 uppercase tracking-widest shadow-lg shadow-red-900/20"
+        >
+          Zapisz wpis w dzienniku
+        </button>
+      </section>
+
+      <section
+        class="bg-gray-800/50 p-6 rounded-2xl border border-dashed border-gray-700 text-center"
+      >
+        <h2
+          class="text-gray-400 text-xs font-bold uppercase tracking-[0.2em] mb-2"
+        >
+          Czas nauki w tym tygodniu
+        </h2>
+        <p id="totalTime" class="text-4xl font-mono font-bold text-white">
+          0 <span class="text-lg text-gray-500">min</span>
+        </p>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold border-l-4 border-red-600 pl-3">
+          Ostatnie sesje
+        </h2>
+        <div id="logList" class="space-y-3">
+          <p class="text-gray-600 italic text-sm">
+            Brak wpisów. Dodaj swój wpis!
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
